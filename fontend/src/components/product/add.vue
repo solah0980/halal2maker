@@ -44,9 +44,9 @@
           aria-label="Default select example"
           v-model="type"
         >
-          <option v-for="i in category" :key="i.id" :value="i.id">{{
-            i.name
-          }}</option>
+          <option v-for="i in category" :key="i.id" :value="i.id">
+            {{ i.name }}
+          </option>
         </select>
       </div>
       <div class="form-group">
@@ -75,13 +75,13 @@ export default {
       price: null,
       picture: null,
       file: null,
-      url: "http://localhost:8081/assets/uploads/",
+      url: "api/assets/uploads/",
       category: null,
     };
   },
   created() {
     axios
-      .get("http://localhost:8081/categorys")
+      .get("api/categorys")
       .then((result) => {
         this.category = result.data;
       })
@@ -98,7 +98,7 @@ export default {
       };
       /*   console.log(product); */
       axios
-        .post("http://localhost:8081/item/add", product)
+        .post("api/item/add", product)
         .then(() => {
           this.$router.push("/");
         })
@@ -113,7 +113,7 @@ export default {
       const formData = new FormData();
       formData.append("file", this.file, this.file.name);
       axios
-        .post("http://localhost:8081/upload", formData)
+        .post("api/upload", formData)
         .then((result) => {
           this.picture = this.file.name;
           this.file = null;

@@ -69,12 +69,12 @@ export default {
   },
   created() {
     axios
-      .get("http://localhost:8081/products")
+      .get("api/")
       .then((res) => {
         this.product = res.data;
         console.log(this.product);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   },
