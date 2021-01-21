@@ -40,7 +40,7 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      url: "api/assets/uploads/",
+      url: "/api/assets/uploads/",
     };
   },
   props: ["item", "displayList"],

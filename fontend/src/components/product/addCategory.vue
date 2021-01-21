@@ -31,7 +31,7 @@ export default {
         name: this.name,
       };
       axios
-        .post("api/category/add", data)
+        .post("/api/category/add", data)
         .then(() => {
           this.$router.push("/");
         })

@@ -69,7 +69,7 @@ export default {
   },
   created() {
     axios
-      .get("api/")
+      .get("/api/")
       .then((res) => {
         this.product = res.data;
         console.log(this.product);

@@ -75,13 +75,13 @@ export default {
       price: null,
       picture: null,
       file: null,
-      url: "api/assets/uploads/",
+      url: "/api/assets/uploads/",
       category: null,
     };
   },
   created() {
     axios
-      .get("api/categorys")
+      .get("/api/categorys")
       .then((result) => {
         this.category = result.data;
       })
@@ -98,7 +98,7 @@ export default {
       };
       /*   console.log(product); */
       axios
-        .post("api/item/add", product)
+        .post("/api/item/add", product)
         .then(() => {
           this.$router.push("/");
         })
@@ -113,7 +113,7 @@ export default {
       const formData = new FormData();
       formData.append("file", this.file, this.file.name);
       axios
-        .post("api/upload", formData)
+        .post("/api/upload", formData)
         .then((result) => {
           this.picture = this.file.name;
           this.file = null;
